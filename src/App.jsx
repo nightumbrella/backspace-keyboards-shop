@@ -4,6 +4,9 @@ import Ads from "./components/Ads";
 import Header from "./components/Header";
 import HomePage from "./pages/HomePage";
 import Wrapper from "./components/Wrapper";
+import BreadCrumbs from "./components/BreadCrumbs";
+import KeyboardsPage from "./pages/KeyboardsPage";
+import SwitchesPage from "./pages/SwitchesPage";
 
 const Layout = () => {
   return (
@@ -11,6 +14,7 @@ const Layout = () => {
       <Ads />
       <Wrapper>
         <Header />
+        <BreadCrumbs/>
         <Outlet />
       </Wrapper>
     </>
@@ -27,7 +31,14 @@ const App = () => {
           path: "/",
           element: <HomePage />,
         },
-        {},
+        {
+          path:"/keyboards",
+          element:<KeyboardsPage/>
+        },
+        {
+          path:"/switches",
+          element:<SwitchesPage/>
+        }
       ],
     },
   ]);
