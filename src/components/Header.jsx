@@ -39,8 +39,8 @@ const Header = () => {
             />
           </svg>
         </button>
-        <Link className="font-medium text-xl">Keyboards</Link>
-        <Link className="font-medium text-xl">Switches</Link>
+        <Link to={'keyboards'} className="font-medium text-xl">Keyboards</Link>
+        <Link to={'switches'} className="font-medium text-xl">Switches</Link>
       </div>
       {/* navigation */}
       <div className="flex items-center gap-5">

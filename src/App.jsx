@@ -7,6 +7,7 @@ import Wrapper from "./components/Wrapper";
 import BreadCrumbs from "./components/BreadCrumbs";
 import KeyboardsPage from "./pages/KeyboardsPage";
 import SwitchesPage from "./pages/SwitchesPage";
+import ProductDetails from "./pages/ProductDetails";
 
 const Layout = () => {
   return (
@@ -36,9 +37,13 @@ const App = () => {
           element:<KeyboardsPage/>
         },
         {
+          path:"/keyboards/:name",
+          element:<ProductDetails/>
+        },
+        {
           path:"/switches",
           element:<SwitchesPage/>
-        }
+        },
       ],
     },
   ]);

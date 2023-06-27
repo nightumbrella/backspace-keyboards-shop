@@ -7,3 +7,69 @@ body{
   user-select: none;
   font-family: 'poppins',sans-serif;
 }
+.crumb{
+  color: #999;
+}
+.crumb::after{
+  content: "";
+  background: url('./assets/arrow.svg');
+  position: 0 0;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin:0 5px;
+}
+.crumb:last-child::after{
+  display: none;
+}
+/* checkbox style */
+.container_checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container_checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 18px;
+  width: 18px;
+  z-index: 99;
+  left: 0;
+}
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+/* Show the checkmark when checked */
+.container_checkbox input:checked ~ .checkmark::after {
+  display: block;
+}
+/* Style the checkmark/indicator */
+.checkmark::after {
+  content: ""; 
+  position: absolute;
+  display: none;
+  background: url("./assets/check.svg");
+  width: 10px;
+  height: 10px;
+  background-position: 0 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+/* checkbox style */
+
