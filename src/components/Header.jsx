@@ -60,7 +60,7 @@ const Header = () => {
             />
           </svg>
           <input
-            type="Search..."
+            type="text" placeholder="Search..."
             className="outline-none border border-[#eee] rounded-md w-full py-2 pl-10 pr-2"
           />
         </div>

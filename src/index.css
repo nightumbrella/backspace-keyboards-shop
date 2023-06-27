@@ -3,23 +3,36 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
   user-select: none;
-  font-family: 'poppins',sans-serif;
+  font-family: "poppins", sans-serif;
 }
-.crumb{
+
+/* hidden scrollbar */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+/* hidden scrollbar */
+
+.crumb {
   color: #999;
 }
-.crumb::after{
+.crumb::after {
   content: "";
-  background: url('./assets/arrow.svg');
+  background: url("./assets/arrow.svg");
   position: 0 0;
   display: inline-block;
   width: 10px;
   height: 10px;
-  margin:0 5px;
+  margin: 0 5px;
 }
-.crumb:last-child::after{
+.crumb:last-child::after {
   display: none;
 }
 /* checkbox style */
@@ -60,7 +73,7 @@ body{
 }
 /* Style the checkmark/indicator */
 .checkmark::after {
-  content: ""; 
+  content: "";
   position: absolute;
   display: none;
   background: url("./assets/check.svg");
@@ -69,7 +82,6 @@ body{
   background-position: 0 0;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 /* checkbox style */
-

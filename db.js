@@ -309,7 +309,7 @@ export const products = [
     connection: "Wireless",
     layout: "65%",
     switch_type: "Sakura",
-    backlighting_RGB: "yes",
+    backlighting_RGB: "no",
     images: [vm1, vm2, vm3, vm4],
     related_products: [
       {

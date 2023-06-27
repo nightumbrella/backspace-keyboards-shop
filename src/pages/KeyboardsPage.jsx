@@ -2,37 +2,66 @@ import React from "react";
 import KeyboardsFilter from "../components/KeyboardsFilter";
 import { UseProducts } from "../redux/ProductSlice";
 import { Link } from "react-router-dom";
+import { UseKeyboardsFilter } from "../redux/KeyboardsFilterSlice";
+import { motion as m } from "framer-motion";
+import KeyboardCard from "../components/KeyboardCard";
+
 const KeyboardsPage = () => {
   const { products } = UseProducts();
-  console.log(products);
+  const { brands, colors, sizes, RGB, connection } = UseKeyboardsFilter();
+  console.log(RGB)
+
+  const filteredKeyboards = products.filter((product) => {
+    if (brands && brands.length > 0 && !brands.includes(product.brand)) {
+      return false;
+    }
+    if (colors && colors.length > 0 && !colors.includes(product.color)) {
+      return false;
+    }
+    if (sizes && sizes.length > 0 && !sizes.includes(product.layout)) {
+      return false;
+    }
+    if (RGB && RGB.length > 0 && !RGB.includes(product.backlighting_RGB)) {
+      return false;
+    }
+    if (connection && connection.length > 0 && !connection.includes(product.connection)) {
+      return false;
+    }
+    return true;
+  });
+
+  const boxVariants = {
+    start:{
+      opacity:0
+    },
+    finish:{
+      opacity:1,
+      transition:{
+        staggerChildren:.03
+      }
+    }
+  }
+  const itemVariants ={
+    start:{
+      opacity:0,
+      y:100
+    },
+    finish:{
+      opacity:1,
+      y:0
+    }
+  }
+
   return (
     <div className="flex gap-2">
       <KeyboardsFilter />
-      <div className="grid grid-cols-3 gap-2">
-        {products.map((keyboard) => (
-          <div className="h-[410px] border rounded-md  group overflow-hidden cursor-pointer" key={keyboard.id}>
-            <Link to={keyboard.name}>
-              <div className="overflow-hidden h-[350px] ">
-                <img
-                  src={keyboard.thumbnail}
-                  alt="keyboards"
-                  className="h-[350px] object-cover mb-1 duration-300  group-hover:scale-105"
-                />
-              </div>
-              <div className="px-2 ">
-                <h2 className="flex justify-between">
-                  {keyboard.name.substring(0, 20)}
-                  {keyboard.name.length > 20 ? "..." : ""}
-                  <span className="bg-[#999] px-1 py-[2px] rounded-sm">
-                    ${keyboard.price}
-                  </span>
-                </h2>
-                <p>{keyboard.brand}</p>
-              </div>
-            </Link>
-          </div>
+      <m.div variants={boxVariants} initial="start" animate="finish" className="grid grid-cols-3 gap-2">
+        {filteredKeyboards.map((keyboard) => (
+          <React.Fragment key={keyboard.id}>
+            <KeyboardCard keyboard={keyboard} itemVariants={itemVariants} />
+          </React.Fragment>
         ))}
-      </div>
+      </m.div>
     </div>
   );
 };
