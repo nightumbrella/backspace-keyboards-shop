@@ -44,6 +44,10 @@ const App = () => {
           path:"/switches",
           element:<SwitchesPage/>
         },
+        {
+          path:"/switches/:name",
+          element:<ProductDetails/>
+        },
       ],
     },
   ]);

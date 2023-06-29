@@ -8,6 +8,7 @@ const initialState = {
   sizes: [],
   RGB: [],
   connection: [],
+  switchSeries: [],
 };
 
 const KeyboardFilterSlice = createSlice({
@@ -56,11 +57,22 @@ const KeyboardFilterSlice = createSlice({
         );
       }
     },
+
+    setSeriesFilter: (state, { payload }) => {
+      const { isChecked, series } = payload;
+      if (isChecked) {
+        state.switchSeries.push(series);
+      } else {
+        state.switchSeries = state.switchSeries.filter(
+          (switchSeries) => switchSeries !== series
+        );
+      }
+    },
   },
 });
 
 export default KeyboardFilterSlice.reducer;
-export const { setBrand, setColor, setSize, setRGB, setConnection } =
+export const { setBrand, setColor, setSize, setRGB, setConnection,setSeriesFilter } =
   KeyboardFilterSlice.actions;
 export const UseKeyboardsFilter = () =>
   useSelector((state) => state.keyboardFilter);
