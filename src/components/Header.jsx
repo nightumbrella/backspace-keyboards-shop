@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { UseWishList } from "../redux/WishListSlice";
 
 const Header = ({toggleShopCategory}) => {
+  const {wishListKeyboards,wishListSwitches} =UseWishList()
   return (
     <div className="h-[100px] flex items-center justify-between">
       <Link to={"/"} className="flex items-center gap-2 text-xl font-semibold">
@@ -70,7 +72,11 @@ const Header = ({toggleShopCategory}) => {
             className="outline-none border border-[#eee] rounded-md w-full py-2 pl-10 pr-2"
           />
         </div>
-        <div className="w-10 h-10 rounded-full bg-[#eee] flex items-center justify-center cursor-pointer">
+        <div className="w-10 h-10 rounded-full bg-[#eee] relative flex items-center justify-center cursor-pointer">
+          {
+           ( wishListKeyboards.length > 0 || wishListSwitches.length > 0) && <span className="w-3 h-3 rounded-full bg-red-500 absolute right-0 top-0"></span>
+          }
+         
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

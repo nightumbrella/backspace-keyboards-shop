@@ -9,7 +9,6 @@ import KeyboardCard from "../components/KeyboardCard";
 const KeyboardsPage = () => {
   const { products } = UseProducts();
   const { brands, colors, sizes, RGB, connection } = UseKeyboardsFilter();
-  console.log(RGB)
 
   const filteredKeyboards = products.filter((product) => {
     if (brands && brands.length > 0 && !brands.includes(product.brand)) {
