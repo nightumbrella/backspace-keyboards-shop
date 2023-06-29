@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({toggleShopCategory}) => {
   return (
     <div className="h-[100px] flex items-center justify-between">
       <Link to={"/"} className="flex items-center gap-2 text-xl font-semibold">
@@ -22,7 +22,7 @@ const Header = () => {
         Space
       </Link>
       <div className="flex items-center gap-10">
-        <button className="flex items-center gap-1 text-xl font-medium">
+        <button className="flex items-center gap-1 text-xl font-medium" onClick={toggleShopCategory}>
           Shop
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +30,7 @@ const Header = () => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6 text-orange-600"
+            className="w-6 h-6 text-yellow-600"
           >
             <path
               strokeLinecap="round"
@@ -41,6 +41,12 @@ const Header = () => {
         </button>
         <Link to={'keyboards'} className="font-medium text-xl">Keyboards</Link>
         <Link to={'switches'} className="font-medium text-xl">Switches</Link>
+        <Link to={'Sound'} className="font-medium text-xl flex items-center gap-1">Sound
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-yellow-600">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
+      </svg>
+
+        </Link>
       </div>
       {/* navigation */}
       <div className="flex items-center gap-5">
