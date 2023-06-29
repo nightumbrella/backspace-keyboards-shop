@@ -83,7 +83,7 @@ const HomePage = () => {
                 transition={{ duration: 0.2, delay: product.id * 0.02 }}
                 className="rounded-md overflow-hidden group relative "
               >
-                <Link>
+                <Link to={`keyboards/${product.name}`}>
                 <h3 className="absolute  top-2/4 text-white z-10 text-xl opacity-0 group-hover:opacity-100 duration-300 -translate-y-2/4 backdrop-blur-md py-2 w-full text-center ">{product.name}</h3>
                   <img
                     src={product.newImage}

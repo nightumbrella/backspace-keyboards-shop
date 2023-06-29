@@ -402,6 +402,7 @@ export const switches = [
     desc: "Description for Switch",
     price: "10,99",
     thumbnail: s1witch,
+    // Add colors
     image: [s1witch, s2witch, s3witch, s4witch],
     // finish
   },

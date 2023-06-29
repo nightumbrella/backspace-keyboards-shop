@@ -10,6 +10,8 @@ import SwitchesPage from "./pages/SwitchesPage";
 import ProductDetails from "./pages/ProductDetails";
 import ShopCategory from "./components/ShopCategory";
 import Sound from "./components/Sound";
+import Wishlist from "./pages/Wishlist";
+import CartPage from "./pages/CartPage";
 
 const Layout = () => {
   const [showShopCategory, setShowShopCategory] = useState(false)
@@ -60,6 +62,14 @@ const App = () => {
         {
           path: "/Sound",
           element: <Sound />
+        },
+        {
+          path: "/Wishlist",
+          element: <Wishlist />
+        },
+        {
+          path: "/Cart",
+          element: <CartPage />
         },
       ],
     },
